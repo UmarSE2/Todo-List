@@ -92,7 +92,7 @@ return (
       <div>
         <nav class="navbar navbar-light bg-light">
           <div class="container-fluid">
-            <a class="navbar-brand">Enter Task</a>
+            <p class="navbar-brand">Enter Task</p>
 
             <input class="form-control col-2" type="text" value={name} placeholder={"Task Name"} 
               onChange= {(e) => {setName(e.target.value)}}></input>
