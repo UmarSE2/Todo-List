@@ -6,28 +6,15 @@ export default function Todo() {
   const [data, setData] = useState([])
   const [time, setTime] = useState()
   const [toggleEdit, settoggleEdit] = useState([])
-  const [isEditItem, setIsEditItem] = useState(null);
   const [updateData, setUpdateData] = useState()
+
   setInterval(() => {
     setTime(new moment().format('MM/DD/YYYY, h:mm:ss A'))
   }, 1000);
-  // console.log("The Json format is", data)
+
   const handleAdd = () => {
     if (!name) {
     }
-
-    // else if (name) {
-    //   setData(
-    //     data.map((elem) => {
-    //       if (elem.id === isEditItem) {
-    //         return { ...elem, name: name }
-    //       }
-    //       return elem;
-    //     })
-    //   )
-    //   setName('');
-    //   setIsEditItem(null);
-    // }
 
     else {
       const allInputData = { id: new Date().getTime().toString(), name: name, Counter: 0 }
@@ -51,19 +38,13 @@ export default function Todo() {
   }
 
   const handleInputBox = (id) => {
-    console.log("The Data is", updateData)
-
     const newState = data.map((obj, index) => {
-
       if (id === index) {
         return { ...obj, name: updateData };
       }
-
-
       return obj;
     });
-    setData(newState)
-    // setIsEditItem(null);
+    setData(newState);
 
     var arr = toggleEdit.map((ls, index) => {
       if (id === index) {
@@ -73,12 +54,10 @@ export default function Todo() {
         return ls
       }
     })
-    console.log("The Data is", data[id].name)
     settoggleEdit(arr)
   }
 
-  const handleSecondInput = (param1, param2) => {
-    console.log("The clg is", param1, param2.target.value)
+  const handleSecondInput = (e, param2) => {
     setUpdateData(param2.target.value)
   }
 
